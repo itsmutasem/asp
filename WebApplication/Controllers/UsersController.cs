@@ -65,4 +65,9 @@ public class UsersController : Controller
         };
         return View(user);
     }
+
+    public IActionResult Users()
+    {
+        return View(_users);
+    }
 }
