@@ -18,7 +18,6 @@ C:\Users\dell\Desktop\GitHub\asp\WebApplication\bin\Debug\net9.0\WebApplication.
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\scopedcss\bundle\WebApplication.styles.css
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\scopedcss\projectbundle\WebApplication.bundle.scp.css
-C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\compressed\iofu9yq693-b9sayid5wm.gz
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\compressed\bv8929sbt7-61n19gt1b8.gz
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\compressed\tue02uo1zm-xtxxf3hu2r.gz
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\compressed\840i5zqapk-t1cqhe9u97.gz
@@ -96,3 +95,4 @@ C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\refint\WebAppli
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\WebApplication.pdb
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\WebApplication.genruntimeconfig.cache
 C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\ref\WebApplication.dll
+C:\Users\dell\Desktop\GitHub\asp\WebApplication\obj\Debug\net9.0\compressed\iofu9yq693-2uin9syo3w.gz
