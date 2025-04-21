@@ -1,7 +1,22 @@
 ﻿@model List<User>
-<ol>
-        @foreach (var user in @Model)
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
         {
-            <li>@user.Name</li>
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+            </tr>
         }
-</ol>
+    </tbody>
+</table>
