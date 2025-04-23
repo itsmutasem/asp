@@ -1,18 +1,19 @@
-﻿@model TModel
+﻿@model List<Course>
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Course ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
