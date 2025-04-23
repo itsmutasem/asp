@@ -1,5 +1,7 @@
-﻿@model List<Course>
-
+﻿@model StudentCourses
+<label>@Model.StudentDetails.Id</label>
+<label>@Model.StudentDetails.Name</label>
+<label>@Model.StudentDetails.GPA</label>
 <table class="table">
     <thead>
     <tr>
@@ -8,7 +10,7 @@
     </tr>
     </thead>
     <tbody>
-        @foreach (var course in Model)
+        @foreach (var course in Model.Courses)
         {
             <tr>
                 <td>@course.Id</td>
