@@ -18,4 +18,10 @@ public class ProductsController : Controller
     {
         return View(_peoducts);
     }
+
+    public IActionResult Details(int id)
+    {
+        Product product = _peoducts.Find(p => p.Id == id);// Link Query
+        return View(product);
+    }
 }
