@@ -1,18 +1,7 @@
-﻿@model TModel
+﻿@model Product
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+<h2>Product Details</h2>
+<h3>@Model.Id</h3>
+<h3>@Model.Name</h3>
+<p>@Model.Description</p>
+<p>@Model.Price</p>
