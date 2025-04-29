@@ -5,15 +5,8 @@ namespace WebApplication.Controllers;
 
 public class ProductsController : Controller
 {
-    private List<Product> _peoducts;
-
-    public ProductsController()
-    {
-        _peoducts = new List<Product>();
-        _peoducts.Add(new Product { Id = 1, Name = "Keyboard", Description = "Black Keyboard", Price = 15.99 });
-        _peoducts.Add(new Product { Id = 2, Name = "Mouse", Description = "Black Mouse", Price = 10.99 });
-        _peoducts.Add(new Product { Id = 3, Name = "Screen", Description = "Wide Screen", Price = 35.99 });
-    }
+    private static List<Product> _peoducts = new List<Product>();
+    
     public IActionResult Index()
     {
         return View(_peoducts);
@@ -30,8 +23,11 @@ public class ProductsController : Controller
         return View();
     }
 
-    public IActionResult Store()
+    [HttpPost]
+    public IActionResult Store(Product data)
     {
-        return View("Create");
+        data.Id = _peoducts.Count + 1;
+        _peoducts.Add(data);
+        return RedirectToAction(nameof(Index));
     }
 }
