@@ -24,4 +24,14 @@ public class ProductsController : Controller
         Product product = _peoducts.Find(p => p.Id == id);// Link Query
         return View(product);
     }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    public IActionResult Store()
+    {
+        return View("Create");
+    }
 }
