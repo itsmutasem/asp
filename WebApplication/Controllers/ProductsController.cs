@@ -26,8 +26,12 @@ public class ProductsController : Controller
     [HttpPost]
     public IActionResult Store(Product data)
     {
-        data.Id = _peoducts.Count + 1;
-        _peoducts.Add(data);
-        return RedirectToAction(nameof(Index));
+        if (ModelState.IsValid)
+        {
+            data.Id = _peoducts.Count + 1;
+            _peoducts.Add(data);
+            return RedirectToAction(nameof(Index));   
+        }
+        return View("Create");
     }
 }
