@@ -50,6 +50,31 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult SignUp(User newUser)
+    {
+        if (ModelState.IsValid)
+        {
+            var exit = _users.FirstOrDefault(x => x.Email == newUser.Email);
+            if (exit != null)
+            {
+                ModelState.AddModelError("", "User already exists");
+                return View(newUser);
+            }
+
+            if (_users.Count > 0)
+            {
+                newUser.Id = _users.Max(x => x.Id) + 1;
+            }
+            else
+            {
+                newUser.Id = 1;
+                _users.Add(newUser);
+                RedirectToAction(nameof(Login));
+            }
+        }
+        return View(newUser);
+    }
+
     public IActionResult Privacy()
     {
         return View();
