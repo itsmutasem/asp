@@ -26,6 +26,25 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult Login(LoginModel login)
+    {
+        if (ModelState.IsValid)
+        {
+            var exsit = _users.FirstOrDefault(x => x.Email == login.Email);
+            if (exsit != null)
+            {
+                if (exsit.Password == login.Password)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            ModelState.AddModelError("", "Invalid username or password");
+            return View(login);
+        }
+        return View(login);
+    }
+
     public IActionResult Privacy()
     {
         return View();
