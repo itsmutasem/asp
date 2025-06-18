@@ -45,6 +45,11 @@ public class HomeController : Controller
         return View(login);
     }
 
+    public IActionResult Signup()
+    {
+        return View();
+    }
+
     public IActionResult Privacy()
     {
         return View();
