@@ -7,9 +7,13 @@ namespace WebApplication2.Controllers;
 public class HomeController : Controller
 {
 
+    private static List<User> _users;
+    
     public HomeController()
     {
-        
+        _users = new List<User>();
+        var admin = new User { Id = 1, Name = "admin",Email = "admin@admin.com", Password = "admin" };
+        _users.Add(admin);
     }
 
     public IActionResult Index()
