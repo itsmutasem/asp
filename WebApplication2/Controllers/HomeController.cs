@@ -74,6 +74,104 @@ public class HomeController : Controller
         }
         return View(newUser);
     }
+    
+     [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                post.Id = _nextId++;
+                post.Author = User.Identity.Name;
+                post.Date = DateTime.Now;
+                _posts.Add(post);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(post);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var post = _posts.FirstOrDefault(p => p.Id == id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        [Authorize]
+        public IActionResult Edit(int id)
+        {
+            var post = _posts.FirstOrDefault(p => p.Id == id);
+            if (post == null || post.Author != User.Identity.Name)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, Post updatedPost)
+        {
+            if (id != updatedPost.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var existingPost = _users.FirstOrDefault(p => p.Id == id);
+                if (existingPost == null || existingPost.Author != User.Identity.Name)
+                {
+                    return NotFound();
+                }
+
+                existingPost.Title = updatedPost.Title;
+                existingPost.Description = updatedPost.Description;
+                return RedirectToAction(nameof(Index));
+            }
+            return View(updatedPost);
+        }
+
+        [Authorize]
+        public IActionResult Delete(int id)
+        {
+            var post = _posts.FirstOrDefault(p => p.Id == id);
+            if (post == null || post.Author != User.Identity.Name)
+            {
+                return NotFound();
+            }
+            return View(post);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var post = _posts.FirstOrDefault(p => p.Id == id);
+            if (post != null && post.Author == User.Identity.Name)
+            {
+                _posts.Remove(post);
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
 
     public IActionResult Privacy()
     {
